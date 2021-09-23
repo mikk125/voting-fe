@@ -3,16 +3,27 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { VoteListComponent } from './vote-list/vote-list.component';
+import { VoteFormComponent } from './vote-form/vote-form.component';
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {AppRoutingModule} from "./app-routing.module";
+import {VotingService} from "./service/voting.service";
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    VoteListComponent,
+    VoteFormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [VotingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

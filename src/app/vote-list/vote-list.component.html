@@ -1,0 +1,17 @@
+<div *ngIf="votes.length > 0">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Animal</th>
+      <th>Votes number</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let vote of votes">
+      <td>{{vote.animalName}}</td>
+      <td>{{vote.votesNumber}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="votes.length === 0" class="alert alert-info">No votes were found</div>

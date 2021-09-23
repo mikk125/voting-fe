@@ -1,0 +1,20 @@
+<div>
+  <br>
+  <br>
+  <form (ngSubmit)="saveVote()" method="POST">
+    <div class="form-group">
+      <label>I vote for:</label>
+      <p>
+        <input type="radio" value="cat" name="animalName" required [(ngModel)]="vote.animalName" #animalName="ngModel"> Cat
+        <input type="radio" value="dog" name="animalName" required [(ngModel)]="vote.animalName" #animalName="ngModel"> Dog
+      </p>
+    </div>
+    <div *ngIf="animalName.invalid">
+      Animal name is required.
+    </div>
+    <button type="submit"
+            [disabled]="animalName.invalid" class="btn btn-info">Vote</button>
+    <div *ngIf="successMessage !== ''" class="alert alert-success">{{successMessage}}</div>
+    <div *ngIf="errorMessage !== ''" class="alert alert-danger">{{errorMessage}}</div>
+  </form>
+</div>
